@@ -3,6 +3,7 @@
 # A dict with key = question and value = vector
 
 class DataModel:
+    import numpy as np
     buildings = 1
     math = 1
     science = 1
@@ -37,6 +38,10 @@ class DataModel:
     drawing = 1
     psychology = 1
 
+    keywordsArray = [buildings, math, science, garedening ,biology ,nature ,planning, culture ,politics ,social ,people,speech ,language,
+    engineering ,computer ,graphics ,programming ,Systems ,development ,animation,communication, media  ,design ,aesthetics, art ,chemistry,
+    physics ,anamoty ,photography, history ,painting ,drawing ,psychology]
+    
     questions = {
         "Analysing and interpreting worksof art/literature": [photography, history, painting, drawing, psychology,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ],
         "Intensive infested with speech": [], "Creatively prepare films and pho-tos on the computer": [],
@@ -58,13 +63,25 @@ class DataModel:
 
     query = [4,5,2,3,4,0,3,3,3,5,2,3,4,4,3,4,2,5,2,4,2,1,5,3,1,0,5,2,5,1,0,2,3]
 
-    studiengänge = {"Landscape Architecture": [], "Political and Social Studies": [], "Mediainformatics": [], "Communication design": [],
+    studiengänge = {"Landscape Architecture": [buildings,math,garedening,biology,chemistry,nature,planning,culture], "Political and Social Studies": [], "Mediainformatics": [], "Communication design": [],
                     "Media and Communincations for Digital Businesses": [], "Medicine":[], "Marine Biology":[], "Philosophy": [],
                     "Industrial Engineering and Management":[], "Business Administration":[]
     }
 
+    def printZeros(self, x =str(input())):
+        total = range(33 - len(self.studiengänge[x]))
+        for i in total:
+            print(0, end=',')
+
+instance = DataModel()
+
+instance.printZeros()
+
+
+
 
 class KNN(DataModel):
+
     data = DataModel()
 
     fif = 13
@@ -75,7 +92,7 @@ class KNN(DataModel):
 
     def total_distance(self, q, d):
         dist_temp = 0
-        for i in range(5):
+        for i in range(len(self.data.studiengänge)):
             dist_temp = self.manhatten(q[i], d[i])
             return dist_temp
 
