@@ -86,5 +86,21 @@ def printRandom():
     for i in total:
         print(random.randint(0,5), end=",")
 
-printRandom()
+#printRandom()
+
+
+
+import json
+
+with open('answers.json') as f:
+    data = json.load(f)
+
+keys = list(data[0])
+
+for q in data:
+    print(f'{[q["question"]]}:{[q["answer"]]}')
+    
+
+
+
 

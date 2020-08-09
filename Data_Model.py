@@ -4,6 +4,11 @@
 
 class DataModel:
     import numpy as np
+    import json
+
+    with open('answers.json') as f:
+        data=json.load(f)
+
     buildings = 1
     math = 1
     science = 1
@@ -41,7 +46,9 @@ class DataModel:
     keywordsArray = [buildings, math, science, garedening ,biology ,nature ,planning, culture ,politics ,social ,people,speech ,language,
     engineering ,computer ,graphics ,programming ,Systems ,development ,animation,communication, media  ,design ,aesthetics, art ,chemistry,
     physics ,anamoty ,photography, history ,painting ,drawing ,psychology]
-    
+
+
+
     questions = {
         "Analysing and interpreting worksof art/literature": [photography, history, painting, drawing, psychology,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ],
         "Intensive infested with speech": [], "Creatively prepare films and pho-tos on the computer": [],
